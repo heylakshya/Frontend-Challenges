@@ -9,6 +9,7 @@
     --neutral-grey: hsl(0, 0%, 20%);
     --neutral-dark-grey: hsl(0, 0%, 12%);
     --neutral-off-black: hsl(0, 0%, 8%);
+    box-sizing: border-box;
 }
 
 html {
@@ -19,18 +20,22 @@ html {
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 20px;
     font: 12px "Inter";
 }
 
+
 body {
     background-color: var(--neutral-dark-grey);
-    width: 250px;
-    padding: 40px;
+    width: 100%;
+    max-width: calc(375px - 80px);
+    padding: 20px;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 .user-profile {
     margin-bottom: 20px;
