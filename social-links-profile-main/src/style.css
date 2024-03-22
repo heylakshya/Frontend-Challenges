@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Inter";
+    src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+:root {
+    --primary-green: hsl(75, 94%, 57%);
+    --neutral-white: hsl(0, 0%, 100%);
+    --neutral-grey: hsl(0, 0%, 20%);
+    --neutral-dark-grey: hsl(0, 0%, 12%);
+    --neutral-off-black: hsl(0, 0%, 8%);
+}
+
+html {
+    background-color: var(--neutral-off-black);
+    color: var(--neutral-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font: 12px "Inter";
+}
+
+body {
+    background-color: var(--neutral-dark-grey);
+    width: 250px;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-profile {
+    margin-bottom: 20px;
+    display: inherit;
+    flex-direction: column;
+    align-items: inherit;
+    gap: 8px;
+}
+
+img.profile {
+    width:80px;
+    height:80px;
+    border-radius: 100%;
+    margin-bottom: 16px;;
+}
+
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: .01ch;
+    color: var(--primary-green);
+    margin: 0;
+}
+
+.link-list {
+    display: flex;
+    flex-direction:column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+a.link {
+    padding: 12px;
+    background-color: var(--neutral-grey);
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight:700;
+    text-decoration: none;
+    color: var(--neutral-white);
+}
+
+.link:hover {
+    background-color: var(--primary-green);
+    color: var(--neutral-grey);
+}
+
+.attribution {
+    display: none;
+}
