@@ -1,0 +1,14 @@
+{
+  "name": "frontend-challenges",
+  "version": "1.0.0",
+  "description": "Frontend Mentor challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  }
+}
