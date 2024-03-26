@@ -1,0 +1,245 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("./assets/fonts/Roboto-Bold.ttf");
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(234, 29%, 20%);
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  color: hsl(235, 18%, 26%);
+  transition: all 100ms ease-in-out;
+}
+@media (max-width: 412px) {
+  body {
+    align-items: stretch;
+  }
+}
+
+h1.hero {
+  font-family: "Roboto Bold";
+  font-size: 56px;
+  line-height: 100%;
+  font-weight: 100;
+  margin: 0;
+  margin-bottom: 24px;
+}
+@media (max-width: 412px) {
+  h1.hero {
+    font-size: 39px;
+  }
+}
+
+.modal {
+  max-width: 928px;
+  width: 928px;
+  height: auto;
+  margin: 40px;
+  background: hsl(0, 0%, 100%);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  box-sizing: border-box;
+}
+@media (max-width: 412px) {
+  .modal {
+    min-height: 100vh;
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    gap: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}
+.modal.submitted {
+  width: 504px;
+}
+@media (max-width: 412px) {
+  .modal.submitted {
+    padding: 0;
+  }
+}
+.modal.hide {
+  display: none;
+}
+.modal .modal-content {
+  padding-left: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.modal .modal-content.submitted {
+  padding: 24px;
+  justify-content: flex-start;
+  gap: 44px;
+}
+@media (max-width: 412px) {
+  .modal .modal-content {
+    justify-content: flex-start;
+    padding: 24px;
+    padding-top: 44px;
+  }
+  .modal .modal-content.submitted {
+    padding-top: 149px;
+  }
+}
+.modal img.modal-img {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  align-self: flex-start;
+  height: auto;
+}
+@media (max-width: 412px) {
+  .modal img.modal-img {
+    flex: 0 0;
+    content: url("./assets/images/illustration-sign-up-mobile.svg");
+    width: 100%;
+  }
+}
+.modal img.modal-img.submitted {
+  content: url("assets/images/icon-success.svg");
+  width: 64px;
+  height: 64px;
+}
+.modal ul {
+  padding: 0;
+}
+.modal ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.modal ul li::before {
+  content: url("./assets/images/icon-list.svg");
+  margin-right: 16px;
+}
+
+a#form-button {
+  text-decoration: none;
+  margin-top: auto;
+}
+
+form {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 412px) {
+  form {
+    margin-top: auto;
+  }
+}
+
+.email-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+label {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+label.error {
+  color: hsl(4, 65%, 67%);
+}
+label.hide {
+  display: none;
+}
+
+input {
+  background: none;
+  padding: 0;
+  padding-left: 24px;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  height: 56px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  width: 100%;
+  align-self: stretch;
+  justify-self: flex-end;
+  border-style: none;
+  box-sizing: border-box;
+}
+input.email-input {
+  border: 1px solid hsl(231, 7%, 60%);
+}
+input.email-input::-moz-placeholder {
+  color: hsl(231, 7%, 60%);
+}
+input.email-input::placeholder {
+  color: hsl(231, 7%, 60%);
+}
+input.email-input:hover, input.email-input:focus {
+  border: 2px solid hsl(234, 29%, 20%);
+  color: hsl(234, 29%, 20%);
+}
+input.error {
+  border: 1px solid hsl(4, 65%, 67%);
+  background: hsla(4, 65%, 67%, 0.2);
+  color: hsl(4, 65%, 67%);
+}
+input.error:hover, input.error:focus {
+  border: 2px solid hsl(4, 65%, 67%);
+  background: hsla(4, 65%, 67%, 0.2);
+  color: hsl(4, 65%, 67%);
+}
+input.primary-button {
+  background: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 0 0 hsla(4, 100%, 67%, 0.5);
+  align-self: stretch;
+}
+input.primary-button:hover, input.primary-button:focus {
+  background: linear-gradient(to right, hsl(346, 100%, 66%), hsl(13, 96%, 62%));
+  box-shadow: 0 10px 20px hsla(4, 100%, 67%, 0.5);
+}
+
+span.highlight {
+  font-family: "Roboto Bold";
+}
+
+.attribution {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

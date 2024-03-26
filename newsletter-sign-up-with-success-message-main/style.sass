@@ -1,0 +1,270 @@
+@font-face 
+	font-family: 'Roboto'
+	src: url('./assets/fonts/Roboto-Regular.ttf')
+
+@font-face 
+	font-family: 'Roboto Bold'
+	src: url('./assets/fonts/Roboto-Bold.ttf')
+
+@function add-alpha-hsla($color, $alpha)
+	@return hsla($color, $alpha)
+
+	
+// Variables
+$color-primary-pink: hsl(346, 100%, 66%)
+$color-primary-orange: hsl(13, 96%, 62%)
+$color-primary-shadow: hsla(4, 100%, 67%, 0.5)
+$color-dark-slate-grey: hsl(234, 29%, 20%)
+$color-charcoal-grey: hsl(235, 18%, 26%)
+$color-grey: hsl(231, 7%, 60%)
+$color-white: hsl(0, 0%, 100%)
+$color-error: hsl(4, 65%, 67%)
+$color-error-bg: hsla(4, 65%, 67%, 0.2)
+$font-family-body: 'Roboto', sans-serif
+
+// $font-weight-normal: 400;
+// $font-weight-bold: 700;
+
+// Mixins
+@mixin breakpoint($point)
+	@if $point == mobile
+		@media (max-width: 412px)
+			@content
+
+	@else if $point == desktop
+		@media (min-width: 1441px)
+			@content
+
+// Base styles
+
+html
+	margin: 0
+	padding: 0
+body
+	margin: 0
+	padding: 0
+	font-family: $font-family-body
+	font-size: 16px // Body Copy font size
+	display: flex
+	justify-content: center
+	align-items: center
+	background: $color-dark-slate-grey
+	margin: 0
+	width: 100%
+	min-height: 100vh
+	color: $color-charcoal-grey
+	transition: all 100ms ease-in-out
+
+	@include breakpoint(mobile)
+		align-items: stretch
+	
+
+h1.hero
+	font-family: 'Roboto Bold'
+	font-size: 56px
+	line-height: 100%
+	font-weight: 100
+	margin: 0
+	margin-bottom: 24px
+
+	@include breakpoint(mobile)
+		font-size: 39px
+	
+
+.modal
+	max-width: 928px
+	width: 928px
+	height: auto
+	margin: 40px
+	background: $color-white
+	border-radius: 24px
+	padding: 24px
+	display: flex
+	flex-direction: row
+	gap: 64px
+	box-sizing: border-box
+
+	@include breakpoint(mobile)
+		min-height: 100vh
+		flex-direction: column-reverse
+		margin: 0
+		padding: 0
+		border-radius: 0
+		gap: 0
+		justify-content: flex-start
+		align-items: stretch
+
+
+	&.submitted
+		// flex-direction: column
+		// align-items: stretch
+		width: 504px
+		// padding: 44px
+		// gap: 44px
+
+		@include breakpoint(mobile)
+			padding: 0
+
+	&.hide
+		display: none
+
+	.modal-content
+		padding-left: 40px
+		flex: 1
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: stretch
+
+		&.submitted
+			padding: 24px
+			justify-content: flex-start
+			gap: 44px
+
+		@include breakpoint(mobile)
+			justify-content: flex-start
+			padding: 24px
+			padding-top: 44px
+
+			&.submitted
+				padding-top: 149px
+		
+		
+	
+	img.modal-img
+		flex: 1
+		padding: 0
+		margin: 0
+		align-self: flex-start
+		height: auto
+
+		@include breakpoint(mobile)
+			flex: 0 0
+			content: url("./assets/images/illustration-sign-up-mobile.svg")
+			width:100%
+		
+		&.submitted
+			content: url("assets/images/icon-success.svg")
+			width: 64px
+			height: 64px
+
+	
+	ul
+		padding: 0
+		// padding-left: 24px
+
+		li
+			list-style: none
+			// padding-left: 10px
+			display: flex
+			align-items: center
+			margin-bottom: 8px
+
+			&::before
+				content: url("./assets/images/icon-list.svg")
+				margin-right: 16px
+			// align-items: center
+
+			// text-indent: 100px
+
+a#form-button
+	text-decoration: none
+	margin-top: auto
+
+form
+	align-self: stretch
+	display: flex
+	flex-direction: column
+	align-items: stretch
+	
+	@include breakpoint(mobile)
+		margin-top: auto
+
+.email-labels
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+
+label
+	background: none
+	padding: 0
+	margin: 0
+	font: inherit
+	color: inherit
+	outline: none
+	font-size: 12px
+	font-weight: 700
+	margin-bottom: 10px
+
+	&.error
+		color: $color-error
+	
+	&.hide
+		display: none
+
+
+input
+	background: none
+	padding: 0
+	padding-left: 24px
+	margin: 0
+	font: inherit
+	color: inherit
+	outline: none
+	height: 56px
+	border-radius: 8px
+	margin-bottom: 24px
+	width: 100%
+	align-self: stretch
+	justify-self: flex-end
+	// border-width: 1
+	border-style: none
+	box-sizing: border-box
+
+	&.email-input
+		border: 1px solid $color-grey
+
+		&::placeholder
+			color: $color-grey
+		
+		&:hover, &:focus
+			border: 2px solid $color-dark-slate-grey
+			color: $color-dark-slate-grey
+	
+	&.error
+		border: 1px solid $color-error
+		background: $color-error-bg
+		color: $color-error
+
+		&:hover, &:focus
+			border: 2px solid $color-error
+			background: $color-error-bg
+			color: $color-error
+
+
+
+	&.primary-button
+		// transition: all 100ms ease-in-out
+		background: $color-dark-slate-grey
+		color: $color-white
+		font-weight: bold
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 0
+		margin:0
+		box-shadow: 0 0 0 $color-primary-shadow
+		align-self: stretch
+		
+
+		&:hover, &:focus
+			background: linear-gradient(to right, $color-primary-pink, $color-primary-orange)
+			// background: $color-primary-orange
+			box-shadow: 0 10px 20px $color-primary-shadow
+
+span.highlight
+	font-family: 'Roboto Bold'
+
+.attribution
+	display: none
+ 
