@@ -1,49 +1,20 @@
-// const fs = require('fs');
-// const path = require('path');
-
-// function isProjectDirectory(path) {
-//     if(fs.statSync(path).isDirectory()){
-//         let files = fs.readdirSync(path);
-//         return files.find(file => file==="index.html");
-//     }
-// }
-
-// function getProjectObjects() {
-//     try {
-        
-//         let projectObjects = {};
-//         let files = fs.readdirSync(__dirname);
-//         let projectDirs = files.filter(file => isProjectDirectory(path.join(__dirname, file)))
-//         projectDirs.forEach(dir => {
-//             projectObjects[dir] = path.join("./", dir, "index.html");
-//         })
-
-//         return projectObjects;
-        
-//     } catch (error) {
-//         console.log("Error getting folder names:", error);
-//     }
-// }
-
-// function populateChallenges() {
-//     let challenges = document.getElementById("challenges");
-//     let projectObjects = getProjectObjects();
-    
-//     for (const projectName in projectObjects) {
-//         let challenge = document.createElement("li");
-//         challenge.classList.add("challenge");
-
-//         let link = document.createElement("a");
-//         link.href = projectObjects[projectName];
-//         link.textContent = projectName;
-
-//         challenge.appendChild(link);
-
-//         challenges.appendChild(challenge);
-//     }
-// }
-
-// console.log(getProjectObjects());
+function checkURL(url) {
+    return fetch(url, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                // URL exists, return true
+                return true;
+            } else {
+                // URL does not exist, return false
+                return false;
+            }
+        })
+        .catch(error => {
+            // Error occurred while fetching the URL, return false
+            console.error('Error checking URL:', error);
+            return false;
+        });
+}
 
 window.onload = function() {
     const apiUrl = 'https://api.github.com/repos/heylakshya/Frontend-Challenges/contents/';
@@ -51,15 +22,27 @@ window.onload = function() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            console.log("response json:", data);
             const challengeList = document.getElementById('challenges');
             data.forEach(item => {
                 if (item.type === 'dir') {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = './' + item.name + '/index.html';
-                    link.textContent = item.name;
-                    listItem.appendChild(link);
-                    challengeList.appendChild(listItem);
+
+                    const url = './' + item.name + '/index.html';
+                    checkURL(url)
+                        .then(result => {
+                            if (result) {
+                                
+                                console.log('URL exists');
+
+                                const listItem = document.createElement('li');
+                                const link = document.createElement('a');
+                                link.href = url
+                                link.textContent = item.name;
+                                listItem.appendChild(link);
+                                challengeList.appendChild(listItem);
+                            }
+                        });
+                    
                 }
             });
         })
