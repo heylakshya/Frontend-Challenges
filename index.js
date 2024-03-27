@@ -22,7 +22,7 @@ window.onload = function() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            console.log("response json:", data);
+            // console.log("response json:", data);
             const challengeList = document.getElementById('challenges');
             data.forEach(item => {
                 if (item.type === 'dir') {
@@ -32,7 +32,7 @@ window.onload = function() {
                         .then(result => {
                             if (result) {
                                 
-                                console.log('URL exists');
+                                // console.log('URL exists');
 
                                 const listItem = document.createElement('li');
                                 const link = document.createElement('a');
