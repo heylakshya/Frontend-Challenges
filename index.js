@@ -18,6 +18,7 @@ function checkURL(url) {
 
 window.onload = function() {
     const apiUrl = 'https://api.github.com/repos/heylakshya/Frontend-Challenges/contents/';
+    const loadingSign = document.getElementById("loading");
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -45,6 +46,9 @@ window.onload = function() {
                     
                 }
             });
+            
+            loadingSign.style.display = "none";
+
         })
         .catch(error => console.error('Error fetching data:', error));
 };
